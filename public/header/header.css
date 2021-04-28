@@ -1,0 +1,9 @@
+.mainContainer {
+    min-height: calc(100vh - 100px);   
+}
+
+.fa-glasses {
+    color: rgba(0, 0, 0, 0.76);
+}
+
+
