@@ -13,7 +13,7 @@ const router = require("express").Router();
 
 const projects = [{
     title: "Nodefolio",
-    description: "Personal portfolio implemented in Node.js. Pages are served using express and are rendered from JavaScript objects to create a scalable website",
+    description: "Personal portfolio implemented in Node.js. Pages are served using express and are rendered from JavaScript objects to create a scalable website.",
     days: 6,
     technology: "JavaScript, NodeJS, HTML, CSS.",
     gitLink: "https://github.com/StortM/node-elective", 
@@ -29,7 +29,7 @@ const projects = [{
 },
     {
     title: "Motorhome rental website",
-    description: "A website utiziling the Java framework, MySQL, Spring Boot, Thymeleaf and Spring security to make a complete site for managing a motorhome rental service",
+    description: "A website utiziling the Java framework, MySQL, Spring Boot, Thymeleaf and Spring security to make a complete site for managing a motorhome rental service.",
     days: 30,
     technology: "Java, HTML, CSS, MySQL, Spring Boot, Thymeleaf, Spring Security.",
     gitLink: "https://github.com/StortM/2-semester-eksamensprojekt", 
@@ -37,7 +37,7 @@ const projects = [{
 },
     {
     title: "*In progress* Kvalifik  ",
-    description: "A collaboration between the elective Angular course at KEA and Kvalifik. A social platform for students at CBS to help students engage in social acitivites",
+    description: "A collaboration between the elective Angular course at KEA and Kvalifik. A social platform for students at CBS to help students engage in social acitivites.",
     days: "Currently developing",
     technology: "TypeScript, HTML, CSS, Firebase, Angular.",
     gitLink: "https://github.com/StortM/angular-kvalifik-semester-project", 

@@ -24,6 +24,9 @@
             // creating inner div with elements inside
             const projectDiv = document.createElement("div");
             projectDiv.classList.add("text-center", "mt-4", "col-md-6");
+            projectDiv.style.paddingLeft = "2rem";
+            projectDiv.style.paddingRight = "2rem";
+
 
             // header
             const projectHeader = document.createElement("h4");
