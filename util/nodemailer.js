@@ -1,4 +1,5 @@
 "use strict";
+require("dotenv").config();
 const nodemailer = require("nodemailer");
 const smtpTransport = require('nodemailer-smtp-transport');
 
@@ -27,8 +28,8 @@ async function main(user) {
     service: 'gmail',
     host: "smtp.gmail.com",
     auth: {
-      user: "msfmailserver@gmail.com",
-      pass: "Uhk43cdd",
+      user: process.env.USER_EMAIL, 
+      pass: process.env.USER_PASSWORD,
     }
   }));
   // send mail with defined transport object
@@ -37,9 +38,9 @@ async function main(user) {
   // Atm. this transporter is called every time the program compiles which casts a typeError. 
   // This does not affect the clients experience but just looks bad
   let mailOptions  = await transporter.sendMail({
-    from: "msfmailserver@gmail.com", // sender address
-    to: "michael@fuglo.com", // list of receivers
-    subject: "An email has been sent from Nodefolio from " + user.name + "Using email: " + user.email, // Subject line
+    from: process.env.USER_EMAIL, // sender address
+    to: process.env.EMAIL_TO, // list of receivers
+    subject: "An email has been sent from Nodefolio from " + user.name + " Using email: " + user.email, // Subject line
     text: user.text, // plain text body
   });
 
@@ -47,7 +48,7 @@ async function main(user) {
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
   // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
