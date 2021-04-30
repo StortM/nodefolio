@@ -1,21 +1,40 @@
 const router = require("express").Router(); 
-const nodemailerModule = require("../util/nodemailer");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+const smtpTransport = require('nodemailer-smtp-transport');
+
+let transporter;
+
+(async function initTransporter() {
+    try{
+        transporter = nodemailer.createTransport(smtpTransport({
+            service: 'gmail',
+            host: "smtp.gmail.com",
+            auth: {
+              user: process.env.USER_EMAIL, 
+              pass: process.env.USER_PASSWORD,
+            }
+          }));
+    }
+    catch(error){
+        console.log(error);
+    }
+})();
 
 router.post("/api/contact", (req, res) => {
-    // todo send email
-    console.log(req.body.user.name);
-    console.log(req.body.user.email);
-    console.log(req.body.user.text);
+    async function sendMail(transporter) {
+    let info = transporter.sendMail({
+        from:  `${req.body.email}`, // sender address
+        to: process.env.EMAIL_TO, // list of receivers
+        subject: "An email has been sent from Nodefolio from " + `${req.body.name}` + " Using email: " + `${req.body.email}`, // Subject line
+        text: `${req.body.text}`, // plain text body
+    });
+    console.log("Message sent from " + `${req.body.name}` + " and email: " + `${req.body.email}`);
+};
 
-    const user = {
-        name: req.body.user.name,
-        email: req.body.user.email,
-        text: req.body.user.text
-    }
+    sendMail(transporter).catch(console.error);
 
-    nodemailerModule.func({ name: user.name, email: user.email, text: user.text});
-
-    res.redirect("/")
+    res.redirect("/contact")
 });
 
 module.exports = {

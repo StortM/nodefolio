@@ -17,27 +17,90 @@
 <textarea name="message" placeholder="message" rows="15" cols="50"></textarea>
 
 <button type="submit">Contact Me!</button> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+      integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+      crossorigin="anonymous"/>
+
+<script>
+    // toastr custom settings
+    (() => {
+        toastr.options.closeButton = true;
+        toastr.options.timeOut = 4000;
+        toastr.options.extendedTimeOut = 4000;
+
+        toastr.options.showMethod = 'slideDown';
+        toastr.options.hideMethod = 'slideUp';
+        toastr.options.closeMethod = 'slideUp';
+    })()
+
+    // send data with form
+    async function sendFormData() {
+        const msgSuccess = "Email has been sent successfully"
+        const msgError = "Something went wrong! Email has not been sent."
+
+        // get form
+        const formElement = document.getElementById("contactForm")
+        const formData = new FormData(formElement)
+
+        const form = {}
+        formData.forEach((value, key) => form[key] = value)
+
+        // post form to contact route
+        await fetch("/api/contact", {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify(form)
+
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(`Something went wrong during fetch : ${res.status} ${res.statusText}`)
+                }
+                toastr.success(msgSuccess)
+            })
+            .catch(err => {
+                toastr.error(msgError)
+                console.log(err)
+            })
+        // reset input fields. Also secures against accidental double sending emails.
+        resetForm()
+    }
+
+    function resetForm() {
+        document.getElementById("name").value = ""
+        document.getElementById("email").value = ""
+        document.getElementById("text").value = ""
+    }
+</script>
+
 <div class="col-lg-11 col-md-8 mx-auto text-center">
 
     <h1 class="display-5">Contact</h1>
     <p class="lead text-muted">Please feel free to contact me. I'm always up for a talk over a nice cup of coffee.</p>
 
     <div class="row justify-content-center mt-5">
-        <form method="POST" action="/api/contact" class="col-10" id="contactForm">
+        <!-- <form method="POST" action="/api/contact" class="col-10" id="contactForm"> --->
+        <form class="col-10" onsubmit="sendFormData(); return false;" id="contactForm" >
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="name" placeholder="John Doe" name="user[name]" required>
+                <input type="text" class="form-control" id="name" placeholder="Name" name="name" required>
                 <label for="name">Your name</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="user[email]" required>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" required>
                 <label for="email">Your email address</label>
             </div>
             <div class="form-floating mb-4">
-                <textarea class="form-control" placeholder="Leave a comment here" id="text" style="height: 100px" name="user[text]"></textarea>
+                <textarea class="form-control" placeholder="Leave a comment here" id="text" style="height: 100px" name="text" required></textarea>
                 <label for="message">Message</label>
             </div>
 
-            <button type="submit" class="btn btn-outline-dark btn-lg" id="liveToastBtn">Send</button>   
+            <button type="submit" class="btn btn-outline-dark btn-lg">Send</button>   
         </form>
     </div>
 </div>
