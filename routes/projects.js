@@ -13,8 +13,8 @@ const router = require("express").Router();
 
 const projects = [{
     title: "Nodefolio",
-    description: "Personal portfolio implemented in Node.js. Pages are served using express and are rendered from JavaScript objects to create a scalable website.",
-    days: 7,
+    description: "Personal portfolio implemented in Node.js. Pages are served using express and are rendered from JavaScript objects to create a scalable website. Furthermore email functionality has been implemented using Nodemailer",
+    days: 8,
     technology: "JavaScript, NodeJS, HTML, CSS.",
     gitLink: "https://github.com/StortM/node-elective", 
     image: "https://cdn.discordapp.com/attachments/184351874797928449/836562470658506762/unknown.png"
@@ -39,7 +39,7 @@ const projects = [{
     title: "*In progress* Kvalifik  ",
     description: "A collaboration between the elective Angular course at KEA and Kvalifik. A social platform for students at CBS to help students engage in social acitivites.",
     days: "Currently developing",
-    technology: "TypeScript, HTML, CSS, Firebase, Angular.",
+    technology: "Angular, TypeScript, HTML, CSS, Firebase, NodeJS.",
     gitLink: "https://github.com/StortM/angular-kvalifik-semester-project", 
     image: "https://cdn.discordapp.com/attachments/184351874797928449/836561446023725096/unknown.png"
     }
