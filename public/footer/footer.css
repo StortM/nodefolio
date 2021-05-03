@@ -1,35 +1,26 @@
 #footer-copyright{
-    text-align: center;
+    color: rgba(255, 255, 255, 0.884);
 }
 
-.scroll {
-    color: #fff;
-    margin-top: 100px
+#footer-div{
+    background-color:rgba(0, 0, 0, 0.925);
+
 }
 
-#toTopBtn {
+#footer-list{
+    display: inline;
+    background-color:rgba(0, 0, 0, 0.925);
+
+
+}
+#footer-link{
+    color: rgba(255, 255, 255, 0.884);
+    text-decoration: none;
+}
+
+.back-to-top {
     position: fixed;
-    bottom: 26px;
-    right: 39px;
-    z-index: 98;
-    padding: 21px;
-    background-color: black;
+    bottom: 25px;
+    right: 25px;
+    display: none;
 }
-
-.cd-top {
-    position: fixed;
-    bottom: 20px;
-    bottom: var(--cd-back-to-top-margin);
-    right: 20px;
-    right: var(--cd-back-to-top-margin);
-    display: inline-block;
-    height: 40px;
-    height: var(--cd-back-to-top-size);
-    width: 40px;
-    width: var(--cd-back-to-top-size);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .05) !important;
-    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1571057658/cd-top-arrow.svg) no-repeat center 50%;
-    background-color: hsla(5, 76%, 62%, .8);
-    background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8)
-}
-

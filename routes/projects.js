@@ -14,7 +14,7 @@ const router = require("express").Router();
 const projects = [{
     title: "Nodefolio",
     description: "Personal portfolio implemented in Node.js. Pages are served using express and are rendered from JavaScript objects to create a scalable website.",
-    days: 6,
+    days: 7,
     technology: "JavaScript, NodeJS, HTML, CSS.",
     gitLink: "https://github.com/StortM/node-elective", 
     image: "https://cdn.discordapp.com/attachments/184351874797928449/836562470658506762/unknown.png"
@@ -22,7 +22,7 @@ const projects = [{
     {
     title: "Bubble sort algorithm visualization",
     description: "A visualization of the bubble sort algorithm using JavaFX.",
-    days: 2,
+    days: 3,
     technology: "Java, JavaFX, CSS.",
     gitLink: "https://github.com/StortM/SortingAlg", 
     image: "https://cdn.discordapp.com/attachments/184351874797928449/836546539286822922/bubblesort.png"
