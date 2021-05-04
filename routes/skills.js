@@ -21,7 +21,7 @@ const skills = [{
     experience: "2 years",
     text: "The primary programming language used during the KEA Computer Science programme. Used in various projects together with the Spring and Thymeleaf framework to create full stack web based applications."}, 
 {
-    name: "JavaScript",
+    name: "JavaScript (ES6+)",
     logo: {
         type: "fab",
         logo: "fa-js",
