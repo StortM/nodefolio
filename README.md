@@ -7,5 +7,3 @@ Quick start:
 - Navigate to your environments port or localhost:8080 if not specified.
 
 In order for the mail functionality to work you will have to setup your .env file. Please see .env_example for a template for the file. 
-
-The project is also hosted on Heroku. You can find it here: http://msf-portfolio.herokuapp.com/
